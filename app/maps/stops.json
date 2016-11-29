@@ -1,0 +1,85 @@
+{
+"type": "FeatureCollection",
+
+"features": [
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.39997,37.795001] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.398436,37.79728] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.408433,37.783871] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.39997,37.795001] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.402923,37.794231] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.404767,37.795425] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.403452,37.788975] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.398525,37.799953] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.391034,37.791464] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.388013,37.787152] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.394643,37.789756] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.397086,37.792251] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.405127,37.781752] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.418603,37.781332] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.403234,37.80477] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.390288,37.780526] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.398108,37.786978] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.392738,37.782259] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.402717,37.771058] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.418954,37.774814] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.417385,37.776619] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.401014,37.784878] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.39547,37.7766] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.39528,37.776599] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.408499,37.788446] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.411748,37.781039] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.399051,37.7913] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.404966,37.786305] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.400811,37.789625] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.400862,37.798541] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.39644,37.785366] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.39461,37.794355] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.408891,37.785908] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.390373,37.789656] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.394148,37.795275] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.405942,37.7979] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.418104,37.778744] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.403158,37.780148] } }
+,
+{ "type": "Feature", "properties": { "STREETNAME": null, "CNN": null, "CNNTEXT": null, "LAYER": null }, "geometry": { "type": "Point", "coordinates": [-122.394106,37.78718] } }
+
+
+]
+}
