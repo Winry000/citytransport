@@ -43,7 +43,6 @@ d3.json("maps/streets.json", function(error, json) {
     				svg.drawStop(json, 'stops');
 
                     mapsLoaded();
-
     			});
 			});
 		});
@@ -76,6 +75,7 @@ d3.selection.prototype.drawMap = function(json, className) {
 		.attr("d", path);
 };
 
+// display bike stops
 d3.selection.prototype.drawStop = function(json, className) {
 	return this
 		.append("path")
