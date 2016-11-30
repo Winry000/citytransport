@@ -1655,7 +1655,7 @@
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/pic01.jpg");
+		
 		background-position: center center;
 		background-size: auto 100%;
 		background-repeat: no-repeat;
@@ -1882,7 +1882,7 @@
 		/* Wrappers */
 
 			#header-wrapper {
-				padding: 4.5em 0 4em 0;
+				padding: 1.5em 0 2em 0;
 			}
 
 			#main-wrapper {
@@ -2003,6 +2003,7 @@
 		/* Banner */
 
 			#banner {
+				border-top:  1px;
 				position: relative;
 				padding: 8em 0;
 				margin: 4em 0 0 0;
@@ -2324,7 +2325,7 @@
 				-ms-transition: -ms-transform 0.5s ease;
 				transition: transform 0.5s ease;
 				display: block;
-				height: 44px;
+				height: 85px;
 				left: 0;
 				position: fixed;
 				top: 0;
@@ -2516,6 +2517,7 @@
 		/* Banner */
 
 			#banner {
+				top: 0px;
 				margin: 2em 0 4em 0 !important;
 				padding: 6em 0;
 			}
