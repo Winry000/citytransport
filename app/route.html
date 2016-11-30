@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Route Planner</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      #left-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #left-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #left-panel select {
+        width: 100%;
+      }
+
+      #left-panel i {
+        font-size: 12px;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        float: right;
+        width: 63%;
+        height: 100%;
+      }
+      #left-panel {
+        float: left;
+        width: 34%;
+        height: 100%;
+      }
+      .panel {
+        height: 100%;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="page-wrapper">
+
+
+      <!-- Header -->
+        <div id="header-wrapper">
+          <div id="header">
+
+            <!-- Logo -->
+              <h1><a href="index.html">Dopetrope</a></h1>
+
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li>
+                    <a href="#">Dropdown</a>
+                    <ul>
+                      <li><a href="#">Lorem ipsum dolor</a></li>
+                      <li><a href="#">Magna phasellus</a></li>
+                      <li><a href="#">Etiam dolore nisl</a></li>
+                      <li>
+                        <a href="#">Phasellus consequat</a>
+                        <ul>
+                          <li><a href="#">Magna phasellus</a></li>
+                          <li><a href="#">Etiam dolore nisl</a></li>
+                          <li><a href="#">Veroeros feugiat</a></li>
+                          <li><a href="#">Nisl sed aliquam</a></li>
+                          <li><a href="#">Dolore adipiscing</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="#">Veroeros feugiat</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="left-sidebar.html">City Bus</a></li>
+                  <li ><a href="right-sidebar.html">City Bikes</a></li>
+                  <li class="current"><a href="route.html">Route</a></li>
+                </ul>
+              </nav>
+
+          </div>
+        </div>
+
+
+      <!-- Main -->
+        <div id="main-wrapper" style = "height: 1000px">
+          
+        
+              <div id="map" class="4u 12u(mobile)"></div>
+              <div id="left-panel" class="8u 12u(mobile)">
+                <div>
+                     Start <input type="text" id="startInput">
+                     End <input type="text" id="endInput">
+                </div>
+                <select id="mode">
+                  <option value="DRIVING">Driving</option>
+                  <option value="WALKING">Walking</option>
+                  <option value="BICYCLING">Bicycling</option>
+                  <option value="TRANSIT">Transit</option>
+                </select>
+                <div> 
+                  <button type='button' onclick=submitBtn()>Find My Route</button>
+                </div>
+                <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
+              </div>
+        </div>
+
+
+      <!--div id="map"></div>
+      <div id="left-panel">
+        <div>
+             Start <input type="text" id="startInput">
+             End <input type="text" id="endInput">
+        </div>
+        <select id="mode">
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+          <option value="BICYCLING">Bicycling</option>
+          <option value="TRANSIT">Transit</option>
+        </select>
+        <div> 
+          <button type='button' onclick=submitBtn()>Find My Route</button>
+        </div>
+        <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
+      </div-->
+  </div>
+
+
+
+
+
+    <script>
+    var map;
+    var directionsService;
+    var directionsDisplay;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 37.7749, lng: -122.4394}  
+        });
+
+       directionsService = new google.maps.DirectionsService;
+       directionsDisplay = new google.maps.DirectionsRenderer({
+          draggable: true,
+          map: map,
+          panel: document.getElementById('left-panel')
+        });
+
+        directionsDisplay.addListener('directions_changed', function() {
+          computeTotalDistance(directionsDisplay.getDirections());
+        });
+
+             var input = document.getElementById('startInput');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+             var input2 = document.getElementById('endInput');
+            var autocomplete = new google.maps.places.Autocomplete(input2);
+
+      }
+
+
+      function displayRoute(origin, destination, service, mode, display) {
+        service.route({
+          origin: origin,
+          destination: destination,
+
+          travelMode: mode,
+          avoidTolls: true
+        }, function(response, status) {
+          if (status === 'OK') {
+            display.setDirections(response);
+          } else {
+            alert('Could not display directions due to: ' + status);
+          }
+        });
+      }
+
+      function computeTotalDistance(result) {
+        var total = 0;
+        var myroute = result.routes[0];
+        for (var i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000;
+        document.getElementById('total').innerHTML = total + ' km';
+      }
+
+      function submitBtn() {
+        document.getElementById ( "total_distance" ).style.visibility = 'visible';
+        displayRoute(document.getElementById('startInput').value, document.getElementById('endInput').value, directionsService, document.getElementById('mode').value, directionsDisplay);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVF2lbai-OPJK9i-4htvReyZFpvbqTiJE&libraries=places&callback=initMap">
+    </script>
+  </body>
+</html>
