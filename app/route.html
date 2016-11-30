@@ -4,6 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Route Planner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
       #left-panel {
@@ -29,15 +30,15 @@
         padding: 0;
       }
       #map {
-        height: 100%;
-        float: right;
-        width: 63%;
-        height: 100%;
+        height: 600px;
+        float: left;
+/*        width: 63%;
+        height: 100%;*/
       }
       #left-panel {
         float: left;
-        width: 34%;
-        height: 100%;
+/*        width: 34%;*/
+/*        height: 100%;*/
       }
       .panel {
         height: 100%;
@@ -90,46 +91,31 @@
 
 
       <!-- Main -->
-        <div id="main-wrapper" style = "height: 1000px">
+        <div id="main-wrapper" style = "height: 2000px">
           
         
-              <div id="map" class="4u 12u(mobile)"></div>
-              <div id="left-panel" class="8u 12u(mobile)">
-                <div>
-                     Start <input type="text" id="startInput">
-                     End <input type="text" id="endInput">
+              
+              <div id="left-panel" class="col-md-4 col-xs-12">
+                <div style="padding: 5px;">
+                     A <input type="text" id="startInput" >
                 </div>
-                <select id="mode">
+                <div style="padding: 5px;">
+                    B <input type="text" id="endInput">
+                </div>
+                <select id="mode" style="padding: 5px;" >
                   <option value="DRIVING">Driving</option>
                   <option value="WALKING">Walking</option>
                   <option value="BICYCLING">Bicycling</option>
                   <option value="TRANSIT">Transit</option>
                 </select>
-                <div> 
+                <div style="padding: 5px;"> 
                   <button type='button' onclick=submitBtn()>Find My Route</button>
                 </div>
                 <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
               </div>
+              <div id="map" class="col-md-8 col-xs-12"></div>
         </div>
 
-
-      <!--div id="map"></div>
-      <div id="left-panel">
-        <div>
-             Start <input type="text" id="startInput">
-             End <input type="text" id="endInput">
-        </div>
-        <select id="mode">
-          <option value="DRIVING">Driving</option>
-          <option value="WALKING">Walking</option>
-          <option value="BICYCLING">Bicycling</option>
-          <option value="TRANSIT">Transit</option>
-        </select>
-        <div> 
-          <button type='button' onclick=submitBtn()>Find My Route</button>
-        </div>
-        <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
-      </div-->
   </div>
 
 
@@ -143,7 +129,7 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
-          center: {lat: 37.7749, lng: -122.4394}  
+          center: {lat: 37.7769, lng: -122.4194}  
         });
 
        directionsService = new google.maps.DirectionsService;
