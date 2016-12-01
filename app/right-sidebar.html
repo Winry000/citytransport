@@ -125,12 +125,13 @@
             function bike() {
                 var mapProp = {
                     zoom: 13,
-                    center: {lat: 37.775210, lng: -122.422183}
+                    center: {lat: 37.745210, lng: -122.422183}
                 };
                 map = new google.maps.Map(document.getElementById("map"), mapProp);
 				var bikeLayer = new google.maps.BicyclingLayer();
         		bikeLayer.setMap(map);
-
+        		//var pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+        		var pinImage = new google.maps.MarkerImage("/images/pinimage.png");
                 $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
                     $.each(res.network.stations, function (key,data) {
                         var latLng = new google.maps.LatLng(data.latitude, data.longitude);
@@ -140,6 +141,7 @@
                             map: map,
                             title: data.name,
                             label: String(freeBikes),
+                            icon: pinImage,
                         });
                         bindInfoWindow(marker, map);
                     });
@@ -150,11 +152,12 @@
             function dock() {
                 var mapProp = {
                     zoom: 13,
-                    center: {lat: 37.775210, lng: -122.422183}
+                    center: {lat: 37.745210, lng: -122.422183}
                 };
                 map = new google.maps.Map(document.getElementById("map"), mapProp);
 				var bikeLayer = new google.maps.BicyclingLayer();
         		bikeLayer.setMap(map);
+        		var pinImage2 = new google.maps.MarkerImage("/images/pinimage2.png");
 
                 $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
                     $.each(res.network.stations, function (key,data) {
@@ -165,6 +168,7 @@
                             map: map,
                             title: data.name,
                             label: String(emptySlots),
+                            icon: pinImage2,
                         });
                         bindInfoWindow(marker, map);
                     });
@@ -174,7 +178,7 @@
             function initMap() {
                 var mapProp = {
                     zoom: 13,
-                    center: {lat: 37.775210, lng: -122.422183}
+                    center: {lat: 37.749210, lng: -122.422183}
                 };
                 map = new google.maps.Map(document.getElementById("map"), mapProp);
 
