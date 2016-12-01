@@ -1,5 +1,5 @@
 /*
- * TOOLS
+ * Set browser compliant
  */
 
 function windowSize(){

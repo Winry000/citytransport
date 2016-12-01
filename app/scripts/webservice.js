@@ -1,5 +1,5 @@
 /*
- * WEBSERVICE
+ * Retrive realtime vehicles data from nextbus api
  */
 
 var webservice = {
@@ -68,7 +68,6 @@ var webservice = {
 	},
 	vehicleLocationsStorage: [],
 	vehicleLocationsStorageToUpdate: [],
-//	vehicleLocationsLastTime: new Date().valueOf() - 45000, //DEBUG
 	vehicleLocationsLastTime: 0,
 	vehicleLocationsUrl: function( routeTag, time ){
 		var vehicleLocationslData = {

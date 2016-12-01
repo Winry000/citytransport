@@ -9,18 +9,23 @@
 		<title>Dopetrope by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		 <style>
+
+		<style>
       	html, body {
         	height: 100%;
         	margin: 0;
         	padding: 0;
       	}
       	#map {
-        	height: 100%;
+        height: 600px;
+        float: left;
+
       	}
+      	#left-panel {
+        float: left;
+      }
     </style>
 	</head>
 	<body class="right-sidebar">
@@ -66,26 +71,18 @@
 				</div>
 
 			<!-- Main -->
-				<div id="main-wrapper" style = "height: 1000px">
-
-				</style>
-					<div class="container">
-						<div class="row">
-							<div class="8u 12u(mobile)">
-
+				<div id="main-wrapper" style = "height: 2000px; padding: 0em 0 4em 0">
+					<!-- <div class="container"> -->
+						<!-- <div class="row"> -->
+							<div id="left-panel" class="col-md-4 col-xs-12" style="padding-top: 100px; padding-left: 50px;">
 								<!-- Content -->
-								<button class="cmButton btn--white--blue" onclick = "bike()"><span>Cycles</span></button>
-								<button class="cmButton btn--black-30--white" onclick = "dock()"><span>Docks</span></button>
-								<button class="cmButton btn--black-30--white" onclick = "initMap()"><span>HeatMap</span></button>
-
-							<div class="4u 12u(mobile)">
-								<div style="position: absolute; right: 0px; top: 0px; z-index: 3; width: 60%; height: 60%;" id = "map"></div>
-
-
+								<button  onclick = "bike()"><span>Bicycles</span></button>
+								<button  onclick = "dock()"><span>Docks</span></button>
+								<button  onclick = "initMap()"><span>HeatMap</span></button>		
 							</div>
-						</div>
-					</div>
-				</div>
+						<div style=" height: 60%;" id = "map" class="col-md-8 col-xs-12"></div>
+					<!-- </div> -->
+				<!-- </div> -->
 
 
 		</div>
@@ -128,12 +125,13 @@
             function bike() {
                 var mapProp = {
                     zoom: 13,
-                    center: {lat: 37.775210, lng: -122.422183}
+                    center: {lat: 37.745210, lng: -122.422183}
                 };
                 map = new google.maps.Map(document.getElementById("map"), mapProp);
 				var bikeLayer = new google.maps.BicyclingLayer();
         		bikeLayer.setMap(map);
-
+        		//var pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+        		var pinImage = new google.maps.MarkerImage("/images/pinimage.png");
                 $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
                     $.each(res.network.stations, function (key,data) {
                         var latLng = new google.maps.LatLng(data.latitude, data.longitude);
@@ -143,6 +141,7 @@
                             map: map,
                             title: data.name,
                             label: String(freeBikes),
+                            icon: pinImage,
                         });
                         bindInfoWindow(marker, map);
                     });
@@ -153,11 +152,12 @@
             function dock() {
                 var mapProp = {
                     zoom: 13,
-                    center: {lat: 37.775210, lng: -122.422183}
+                    center: {lat: 37.745210, lng: -122.422183}
                 };
                 map = new google.maps.Map(document.getElementById("map"), mapProp);
 				var bikeLayer = new google.maps.BicyclingLayer();
         		bikeLayer.setMap(map);
+        		var pinImage2 = new google.maps.MarkerImage("/images/pinimage2.png");
 
                 $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
                     $.each(res.network.stations, function (key,data) {
@@ -168,6 +168,7 @@
                             map: map,
                             title: data.name,
                             label: String(emptySlots),
+                            icon: pinImage2,
                         });
                         bindInfoWindow(marker, map);
                     });
@@ -177,7 +178,7 @@
             function initMap() {
                 var mapProp = {
                     zoom: 13,
-                    center: {lat: 37.775210, lng: -122.422183}
+                    center: {lat: 37.749210, lng: -122.422183}
                 };
                 map = new google.maps.Map(document.getElementById("map"), mapProp);
 
