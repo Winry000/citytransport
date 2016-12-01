@@ -1,5 +1,5 @@
 /*
- * MAPS
+ * Draw maps with d3 library
  */
 
 var width = windowSize().width,

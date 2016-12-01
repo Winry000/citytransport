@@ -1,5 +1,5 @@
 /*
- * ROUTE
+ * Draw routes with d3 library
  */
 
 var route = {
@@ -22,7 +22,6 @@ var route = {
 				});
 			})
 			.append('span')
-//			.style('color',  function (d) { return '#' + d.$.oppositeColor; } )
 			.style('background',  function (d) { return '#' + d.value.$.color; } );
 
 		$sidebarRouteLists.exit()
@@ -61,22 +60,7 @@ var route = {
 				.on('mouseleave', route.deselect );
 
 		});
-		/*
-			TODO: IMPROVE BUS STOPS
-		 */
-//		svg.selectAll( '.route-stop').data(r.stop)
-//			.enter()
-//			.append('circle')
-//			.attr("r", "2px")
-//			.attr("fill", "white")
-//			.attr("cx", function (d) { console.log(d); return projection([d.$.lon,d.$.lat])[0]; })
-//			.attr("cy", function (d) { return projection([d.$.lon,d.$.lat])[1]; })
-//			.each( function(d){
-//				$(this).tooltip({
-//					'title': d.$.title,
-//					'space': 40
-//				});
-//			});
+
 	},
 	select: function(routeTag){
 		if(!routeTag)
@@ -111,7 +95,7 @@ routeLineFunction = d3.svg.line()
 
 
 /*
- * ROUTE TOOLS
+ * Set the properties of routes
  */
 
 d3.selection.prototype.vehicleShow = function() {

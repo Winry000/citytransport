@@ -1,5 +1,5 @@
 /*
- * UI
+ * Add mouse actions
  */
 
 $('.nano').nanoScroller();
@@ -23,4 +23,3 @@ $(document).on('mouseover hover', '.sidebar-route-list li', function(e){
 	$(this).toggleClass('active').find('span').toggleClass('fa fa-check');
 	route.select( routeTag );
 });
-

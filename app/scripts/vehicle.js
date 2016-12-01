@@ -1,5 +1,5 @@
 /*
- * VEHICLE
+ * Draw buses on map
  */
 
 var vehicle = {
@@ -14,7 +14,7 @@ var vehicle = {
 };
 
 /*
- * VEHICLE TOOLS
+ * Display details information
  */
 
 function popoverTemplate( data ){
@@ -55,31 +55,13 @@ d3.selection.prototype.drawVehicle = function( json ) {
 	var draw = this
 		.data(json);
 
-	/*
-		TODO: IMPROVE ARROW DIRECTION WITH
-		ANGLE: d.$.heading
-	 */
-
-//	draw.enter()
-//		.append("path")
-//		.attr('d', function(d) {
-//			return "M " + (projection([d.$.lon,d.$.lat])[0] + 3 )+ " " + (projection([d.$.lon,d.$.lat])[1] + 2)+ " l " + 4 + " " + -2 + " l " + -4 + " " + -2 + " z";
-//		})
-//		.style("fill", "black");
-
 	draw.enter()
 		.append( 'circle' )
 		.attr("r", "4px")
 		.attr("fill", "black");
 
-	// draw.append("svg:image")
- //   		.attr('width', 20)
- //   		.attr('height', 24)
- //   		.attr("xlink:href","app/favicon.png")
-
 	draw.exit()
 		.remove();
-
 
 	draw.attr("class", vehicle.className )
 		.attr("data-route-tag", function (d) { return d.$.routeTag; } )
