@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Route Planner | Data Visualization for ITS in SF</title>
+    <meta name="keywords" content="data visualization, intelligent transportation system, ITS, san francisco, realtime, public transportation, bike, transit, map, maps, bikes, heatmap, docks, dock, route, route planner, bus, buses, d3, google maps, google map, vehicle, vehicles, bicycles, bicycle, CityBikes API">
+    <meta name="description" content="Data Visualization for Intelligent Transportation System in San Francisco">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Route Planner</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
@@ -49,13 +51,12 @@
   <body class="left-sidebar">
   <div id="page-wrapper">
 
-
       <!-- Header -->
         <div id="header-wrapper">
           <div id="header">
 
             <!-- Logo -->
-              <h1><a href="index.html">Dopetrope</a></h1>
+              <h1><a href="index.html">Data Visualization for ITS in SF</a></h1>
 
             <!-- Nav -->
               <nav id="nav">
@@ -80,21 +81,17 @@
                       <li><a href="#">Veroeros feugiat</a></li>
                     </ul>
                   </li>
-                  <li><a href="left-sidebar.html">City Bus</a></li>
+                  <li><a href="realtime-public-transportation.html">City Bus</a></li>
                   <li ><a href="right-sidebar.html">City Bikes</a></li>
-                  <li class="current"><a href="route.html">Route</a></li>
+                  <li class="current"><a href="route-planner.html">Route Planner</a></li>
                 </ul>
               </nav>
 
           </div>
         </div>
 
-
       <!-- Main -->
         <div id="main-wrapper" style = "height: 2000px; padding: 0em 0 4em 0">
-          
-        
-              
               <div id="left-panel" class="col-md-4 col-xs-12" style="overflow: auto; max-height: 600px">
                 <div style="padding: 5px;">
                      A <input type="text" id="startInput" size="40">
@@ -108,7 +105,7 @@
                   <option value="BICYCLING">Bicycling</option>
                   <option value="TRANSIT">Transit</option>
                 </select>
-                <div style="padding: 5px;"> 
+                <div style="padding: 5px;">
                   <button type='button' onclick=submitBtn()><span>Find My Route</span></button>
                 </div>
                 <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
@@ -137,7 +134,7 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
-          center: {lat: 37.7769, lng: -122.4194}  
+          center: {lat: 37.7769, lng: -122.4194}
         });
 
        directionsService = new google.maps.DirectionsService;
