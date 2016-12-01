@@ -91,16 +91,16 @@
 
 
       <!-- Main -->
-        <div id="main-wrapper" style = "height: 2000px">
+        <div id="main-wrapper" style = "height: 2000px; padding: 0em 0 4em 0">
           
         
               
               <div id="left-panel" class="col-md-4 col-xs-12">
                 <div style="padding: 5px;">
-                     A <input type="text" id="startInput" >
+                     A <input type="text" id="startInput" size="40">
                 </div>
                 <div style="padding: 5px;">
-                    B <input type="text" id="endInput">
+                    B <input type="text" id="endInput" size="40">
                 </div>
                 <select id="mode" style="padding: 5px;" >
                   <option value="DRIVING">Driving</option>
@@ -109,7 +109,7 @@
                   <option value="TRANSIT">Transit</option>
                 </select>
                 <div style="padding: 5px;"> 
-                  <button type='button' onclick=submitBtn()>Find My Route</button>
+                  <button type='button' onclick=submitBtn()><span>Find My Route</span></button>
                 </div>
                 <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
               </div>
