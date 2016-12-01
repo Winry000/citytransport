@@ -8,6 +8,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script src='jquery-1.8.3.min.js'></script>
+    <script src='jquery.elevatezoom.js'></script>
     <style>
       #left-panel {
         font-family: 'Roboto','sans-serif';
@@ -46,6 +48,15 @@
         height: 100%;
         overflow: auto;
       }
+       #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
     </style>
   </head>
   <body class="left-sidebar">
@@ -75,31 +86,52 @@
 
 
       <!-- Main -->
-        <div id="main-wrapper" style = "height: 2000px; padding: 0em 0 4em 0">
-              <div id="left-panel" class="col-md-4 col-xs-12">
-                <div style="padding: 5px;">
-                     A <input type="text" id="startInput" size="40">
-                </div>
-                <div style="padding: 5px;">
-                    B <input type="text" id="endInput" size="40">
-                </div>
-                <select id="mode" style="padding: 5px;" >
-                  <option value="DRIVING">Driving</option>
-                  <option value="WALKING">Walking</option>
-                  <option value="BICYCLING">Bicycling</option>
-                  <option value="TRANSIT">Transit</option>
-                </select>
-                <div style="padding: 5px;">
-                  <button type='button' onclick=submitBtn()><span>Find My Route</span></button>
-                </div>
-                <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
-              </div>
-                <div id="map" class="col-md-8 col-xs-12"></div>
-        </div>
-  </div>
-
+      <div id="main-wrapper" style = "height: 2500px; padding: 0em 0 4em 0">
+      <div style="padding-top :30px">
+        <header class="major">
+                      <h2>Public Transit Map</h2>
+        </header>
+      <div>
+      <div style="text-align:center; padding-bottom :30px">
+        <img id="zoom_01" src='images/small/img1.png' data-zoom-image="images/large/img1.png" />
+      </div>
+      <header class="major">
+                      <h2>SF Downtown Buses Map</h2>
+      </header>
+      <div style="text-align:center;padding-bottom :30px">
+        <img id="zoom_02" src='images/small/img2.jpeg' data-zoom-image="images/large/img2.png"/>
+      </div>
+      <header class="major">
+                      <h2>SF Slope Map</h2>
+      </header>
+      <div style="text-align:center">
+        <img id="zoom_03" src='images/small/img3.png' data-zoom-image="images/large/img3.png"/>
+       </div>
 
 <!-- Scripts -->
+      <!-- Add jQuery library -->
+      <script>
+        $('#zoom_01').elevateZoom({
+        zoomType: "inner",
+      cursor: "crosshair",
+      zoomWindowFadeIn: 800,
+      zoomWindowFadeOut: 750
+       }); 
+         $('#zoom_02').elevateZoom({
+        zoomType: "inner",
+      cursor: "crosshair",
+      zoomWindowFadeIn: 800,
+      zoomWindowFadeOut: 750
+       }); 
+          $('#zoom_03').elevateZoom({
+        zoomType: "inner",
+      cursor: "crosshair",
+      zoomWindowFadeIn: 800,
+      zoomWindowFadeOut: 750
+       }); 
+      </script>
+      <script  type="text/javascript" src="jquery.js"></script>
+      <script src="jquery.elevatezoom.js" type="text/javascript"></script>
       <script src="assets/js/jquery.min.js"></script>
       <script src="assets/js/jquery.dropotron.min.js"></script>
       <script src="assets/js/skel.min.js"></script>
@@ -107,72 +139,5 @@
       <script src="assets/js/util.js"></script>
       <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
       <script src="assets/js/main.js"></script>
-
-
-
-    <script>
-    var map;
-    var directionsService;
-    var directionsDisplay;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: {lat: 37.7769, lng: -122.4194}
-        });
-
-       directionsService = new google.maps.DirectionsService;
-       directionsDisplay = new google.maps.DirectionsRenderer({
-          draggable: true,
-          map: map,
-          panel: document.getElementById('left-panel')
-        });
-
-        directionsDisplay.addListener('directions_changed', function() {
-          computeTotalDistance(directionsDisplay.getDirections());
-        });
-
-             var input = document.getElementById('startInput');
-            var autocomplete = new google.maps.places.Autocomplete(input);
-
-             var input2 = document.getElementById('endInput');
-            var autocomplete = new google.maps.places.Autocomplete(input2);
-
-      }
-
-
-      function displayRoute(origin, destination, service, mode, display) {
-        service.route({
-          origin: origin,
-          destination: destination,
-
-          travelMode: mode,
-          avoidTolls: true
-        }, function(response, status) {
-          if (status === 'OK') {
-            display.setDirections(response);
-          } else {
-            alert('Could not display directions due to: ' + status);
-          }
-        });
-      }
-
-      function computeTotalDistance(result) {
-        var total = 0;
-        var myroute = result.routes[0];
-        for (var i = 0; i < myroute.legs.length; i++) {
-          total += myroute.legs[i].distance.value;
-        }
-        total = total / 1000;
-        document.getElementById('total').innerHTML = total + ' km';
-      }
-
-      function submitBtn() {
-        document.getElementById ( "total_distance" ).style.visibility = 'visible';
-        displayRoute(document.getElementById('startInput').value, document.getElementById('endInput').value, directionsService, document.getElementById('mode').value, directionsDisplay);
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVF2lbai-OPJK9i-4htvReyZFpvbqTiJE&libraries=places&callback=initMap">
-    </script>
   </body>
 </html>
