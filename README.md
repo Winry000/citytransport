@@ -23,12 +23,6 @@ sudo npm install -g bower
 
 ## Usage
 
-Clone and Enter into the root folder:
-```
-git clone git@github.com:tiagojsalmeida/sanfrancisco.git sanfrancisco;
-cd sanfrancisco;
-```
-
 Install all dependencies:
 ```
 npm install;
@@ -53,6 +47,3 @@ grunt;
 * Add Route schedules;
 * Add messages and additional informations;
 * Improve performance;
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tiagojsalmeida/sanfrancisco/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
