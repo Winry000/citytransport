@@ -9,14 +9,14 @@ Realtime bus map from San Francisco built with D3.js library.
 * [Building and Testing](#building-and-testing)
 * [TODO](#todo)
 
-## Installation
+## Environment:
 
-1. Download [[NodeJS]](http://nodejs.org) and Install it;
+1. Install [[NodeJS]](http://nodejs.org);
 3. Install [[Grunt]](http://gruntjs.com):
 ```
 sudo npm install -g grunt-cli
 ```
-4. Install [[Bower]](http://bower.io):
+3. Install [[Bower]](http://bower.io):
 ```
 sudo npm install -g bower
 ```
@@ -46,7 +46,3 @@ For building the production files:
 ```
 grunt;
 ```
-
-
-
-
