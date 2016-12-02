@@ -21,13 +21,7 @@ sudo npm install -g grunt-cli
 sudo npm install -g bower
 ```
 
-## Usage
-
-Clone and Enter into the root folder:
-```
-git clone git@github.com:tiagojsalmeida/sanfrancisco.git sanfrancisco;
-cd sanfrancisco;
-```
+## How it works:
 
 Install all dependencies:
 ```
@@ -35,9 +29,9 @@ npm install;
 bower install;
 ```
 
-## Building and Testing
+## Running
 
-For running the application and [[Test it Live]](http://localhost:9000/), run:
+Running the application and [[Test it Live]](http://localhost:9000/), run:
 ```
 grunt serve;
 ```
