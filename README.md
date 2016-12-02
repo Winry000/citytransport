@@ -28,6 +28,6 @@ grunt serve;
 
 
 For building the production files:
-
+```
 grunt;
 ```
