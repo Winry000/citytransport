@@ -1,49 +1,32 @@
-San Francisco
-============
+San Francisco Data Visualization
 
-Realtime bus map from San Francisco built with D3.js library.
+Realtime transport map from San Francisco built with D3.js library,bootstrap, jquery.
 
+Environment need:
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Building and Testing](#building-and-testing)
-* [TODO](#todo)
+1. Install [[NodeJS]](http://nodejs.org).
+3. Install [[Grunt]](http://gruntjs.com).
 
-## Installation
-
-1. Download [[NodeJS]](http://nodejs.org) and Install it;
-3. Install [[Grunt]](http://gruntjs.com):
-```
 sudo npm install -g grunt-cli
-```
-4. Install [[Bower]](http://bower.io):
-```
-sudo npm install -g bower
-```
 
-## Usage
+4. Install [[Bower]](http://bower.io):
+sudo npm install -g bower
+
+
+How to work:
 
 Install all dependencies:
-```
+
 npm install;
 bower install;
-```
 
-## Building and Testing
+Running:
 
 For running the application and [[Test it Live]](http://localhost:9000/), run:
-```
+
 grunt serve;
-```
+
 
 For building the production files:
-```
-grunt;
-```
 
-## TODO
-* Improve Stops on the map and add their predictions;
-* Improve bus direction and add their angle;
-* Add Route schedules;
-* Add messages and additional informations;
-* Improve performance;
+grunt;
