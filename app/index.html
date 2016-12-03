@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" href="favicon.png" type="image/png">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+		<script src='scripts/ch.js'></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -28,22 +28,16 @@
 					<div id="header">
 
 						<!-- Logo -->
-							<h1><a href="home.html">Data Visualization for ITS in SF</a></h1>
+							<h1><a href="index.html" data-res="title">Data Visualization for ITS in SF</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Home</a></li>
-									<li><a href="realtime-public-transportation.html">City Bus</a></li>
-
-
-
-
-									<li><a href="realtime-bicycle.html">City Bikes</a></li>
-									<li><a href="route-planner.html">Route Planner</a></li>
-									<li><a href="maps.html">Maps</a></li>
-
-
+									<li class="current"><a href="index.html" data-res="home">Home</a></li>
+									<li><a href="realtime-public-transportation.html" data-res="bus">City Bus</a></li>
+									<li><a href="realtime-bicycle.html" data-res="bike">City Bikes</a></li>
+									<li><a href="route-planner.html" data-res="route">Route Planner</a></li>
+									<li><a href="maps.html" data-res="maps">Maps</a></li>
 								</ul>
 							</nav>
 
@@ -66,7 +60,6 @@
       							<div class="item active">
         							<img src="images/pic001.png" alt="d3" width="460" height="345">
         							<div class="carousel-caption">
-
           								<p>This is Realtime bus map from San Francisco built with D3.js library. </p>
         							</div>
       							</div>
@@ -133,34 +126,34 @@
 										<section class="first">
 											<i class="icon featured alt fa-bus"></i>
 											<header>
-												<h2>Real-time Buses Path</h2>
+												<h2 data-res="fea1h">Real-time Buses Path</h2>
 											</header>
-											<p>Brilliant service to bring dynamic bus information to you</p>
+											<p data-res="fea1">Brilliant service to bring dynamic bus information to you</p>
 										</section>
 									</div>
 									<div class="4u 12u(mobile)">
 										<section class="middle">
 											<i class="icon featured fa-bicycle"></i>
 											<header>
-												<h2>Real-time Bicycles and Docks</h2>
+												<h2 data-res="fea2h">Real-time Bicycles and Docks</h2>
 											</header>
-											<p>The map shows the location of all bike dock stations along with a color coded indicator of the availability of bikes at each station.</p>
+											<p data-res="fea2">The map shows the location of all bike dock stations along with a color coded indicator of the availability of bikes at each station.</p>
 										</section>
 									</div>
 									<div class="4u 12u(mobile)">
 										<section class="last">
 											<i class="icon featured alt2 fa-rocket"></i>
 											<header>
-												<h2>Three Public Transportation Search Engines</h2>
+												<h2 data-res="fea3h">Four Public Transportation Search Engines</h2>
 											</header>
-											<p>We provide three Public Transportation search engines of bicycles, transits and driving</p>
+											<p data-res="fea3">We provide three Public Transportation search engines of bicycles, transits and driving</p>
 										</section>
 									</div>
 								</div>
 								<footer>
 									<ul class="actions">
-										<li><a href="#" class="button big">Get Started</a></li>
-										<li><a href="#main-wrapper" class="button alt big">Learn More</a></li>
+										<li><a href="#" class="button big" data-res="start">Get Started</a></li>
+										<li><a href="#main-wrapper" class="button alt big" data-res="more">Learn More</a></li>
 									</ul>
 								</footer>
 							</section>
@@ -176,18 +169,18 @@
 
 									<section>
 										<header class="major">
-											<h2>Our Services</h2>
+											<h2 data-res="service">Our Services</h2>
 										</header>
 										<div class="row">
 											<div class="4u 12u(mobile)">
 												<section class="box">
 													<a href="#" class="image featured"><img src="images/pic011.png" alt="" /></a>
 													<header>
-														<h3>Realtime Public Transportation</h3>
+														<h3 data-res="ser1h">Realtime Public Transportation</h3>
 													</header>
-													<p>Displaying realtime public transportation vehicles locations including buses and ferries in San Francisco</p>
+													<p data-res="ser1">Displaying realtime public transportation vehicles locations including buses and ferries in San Francisco</p>
 													<footer>
-														<a href="realtime-public-transportation.html" class="button alt">Find out more</a>
+														<a href="realtime-public-transportation.html" class="button alt" data-res="more">Find out more</a>
 													</footer>
 												</section>
 											</div>
@@ -195,11 +188,11 @@
 												<section class="box">
 													<a href="#" class="image featured"><img src="images/pic012.png" alt="" /></a>
 													<header>
-														<h3>Realtime Bicycles and Docks Information</h3>
+														<h3 data-res="ser2h">Realtime Bicycles and Docks Information</h3>
 													</header>
-													<p>Displaying realtime information of available bicycles and docks in San Francisco</p>
+													<p data-res="ser2">Displaying realtime information of available bicycles and docks in San Francisco</p>
 													<footer>
-														<a href="realtime-bicycle.html" class="button alt">Find out more</a>
+														<a href="realtime-bicycle.html" class="button alt" data-res="more">Find out more</a>
 													</footer>
 												</section>
 											</div>
@@ -207,11 +200,11 @@
 												<section class="box">
 													<a href="#" class="image featured"><img src="images/pic013.png" alt="" /></a>
 													<header>
-														<h3>Route Planner</h3>
+														<h3 data-res="ser3h">Route Planner</h3>
 													</header>
-													<p>Displaying route planning information by inputting starting and ending location with details in different modes: driving, bicycling, walking and transit</p>
+													<p data-res="ser3">Displaying route planning information by inputting starting and ending location with details in different modes: driving, bicycling, walking and transit</p>
 													<footer>
-														<a href="route-planner.html" class="button alt">Find out more</a>
+														<a href="route-planner.html" class="button alt" data-res="more">Find out more</a>
 													</footer>
 												</section>
 											</div>
@@ -221,11 +214,11 @@
 												<section class="box">
 													<a href="#" class="image featured"><img src="images/pic021.png" alt="" /></a>
 													<header>
-														<h3>Public Transit Map</h3>
+														<h3 data-res="ser4h">Public Transit Map</h3>
 													</header>
-													<p>Displaying public transit map of San Francisco</p>
+													<p data-res="ser4">Displaying public transit map of San Francisco</p>
 													<footer>
-														<a href="maps.html" class="button alt">Find out more</a>
+														<a href="maps.html" class="button alt" data-res="more">Find out more</a>
 													</footer>
 												</section>
 											</div>
@@ -233,11 +226,11 @@
 												<section class="box">
 													<a href="#" class="image featured"><img src="images/pic022.png" alt="" /></a>
 													<header>
-														<h3>SF Downtown Buses Map</h3>
+														<h3 data-res="ser5h">SF Downtown Buses Map</h3>
 													</header>
-													<p>Displaying San Francisco downtown buses routes</p>
+													<p data-res="ser5">Displaying San Francisco downtown buses routes</p>
 													<footer>
-														<a href="maps.html" class="button alt">Find out more</a>
+														<a href="maps.html" class="button alt" data-res="more">Find out more</a>
 													</footer>
 												</section>
 											</div>
@@ -246,11 +239,11 @@
 
 													<a href="#" class="image featured"><img src="images/pic023.png" alt="" /></a>
 													<header>
-														<h3>SF Slope Map</h3>
+														<h3 data-res="ser6h">SF Slope Map</h3>
 													</header>
-													<p>Displaying slope information of San Francisco</p>
+													<p data-res="ser6">Displaying slope information of San Francisco</p>
 													<footer>
-														<a href="maps.html" class="button alt">Find out more</a>
+														<a href="maps.html" class="button alt" data-res="more">Find out more</a>
 
 													</footer>
 												</section>
@@ -368,6 +361,7 @@
 		</div>
 
 		<!-- Scripts -->
+			<script src="scripts/langlocal.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
