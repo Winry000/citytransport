@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dopetrope by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<style>
+      	html, body {
+        	height: 100%;
+        	margin: 0;
+        	padding: 0;
+      	}
+      	#map {
+        height: 600px;
+        float: left;
+
+      	}
+      	#left-panel {
+        float: left;
+      }
+    </style>
+	</head>
+	<body class="right-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header">
+
+						<!-- Logo -->
+							<h1><a href="index.html">Dopetrope</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li>
+										<a href="#">Dropdown</a>
+										<ul>
+											<li><a href="#">Lorem ipsum dolor</a></li>
+											<li><a href="#">Magna phasellus</a></li>
+											<li><a href="#">Etiam dolore nisl</a></li>
+											<li>
+												<a href="#">Phasellus consequat</a>
+												<ul>
+													<li><a href="#">Magna phasellus</a></li>
+													<li><a href="#">Etiam dolore nisl</a></li>
+													<li><a href="#">Veroeros feugiat</a></li>
+													<li><a href="#">Nisl sed aliquam</a></li>
+													<li><a href="#">Dolore adipiscing</a></li>
+												</ul>
+											</li>
+											<li><a href="#">Veroeros feugiat</a></li>
+										</ul>
+									</li>
+									<li><a href="left-sidebar.html">City Bus</a></li>
+									<li class="current"><a href="right-sidebar.html">City Bikes</a></li>
+									<li><a href="route.html">Route</a></li>
+									<li><a href="maps.html">Maps</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper" style = "height: 2000px; padding: 0em 0 4em 0">
+					<!-- <div class="container"> -->
+						<!-- <div class="row"> -->
+							<div id="left-panel" class="col-md-4 col-xs-12" style="padding-top: 100px; padding-left: 50px;">
+								<!-- Content -->
+								<button  onclick = "bike()"><span>Bicycles</span></button>
+								<button  onclick = "dock()"><span>Docks</span></button>
+								<button  onclick = "initMap()"><span>HeatMap</span></button>		
+							</div>
+						<div style=" height: 60%;" id = "map" class="col-md-8 col-xs-12"></div>
+					<!-- </div> -->
+				<!-- </div> -->
+
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        	<script src="https://maps.googleapis.com/maps/api/js"></script>
+			<script>
+            var map;
+            var infowindow = new google.maps.InfoWindow();
+            // function initialize() {
+            //     var mapProp = {
+            //         zoom: 13,
+            //         center: {lat: 37.7598253802915, lng: -122.4329009197085}
+            //     };
+            //     map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+            //     $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
+            //         $.each(res.network.stations, function (key,data) {
+            //             var latLng = new google.maps.LatLng(data.latitude, data.longitude);
+            //             var freeBikes = data.free_bikes;
+            //             var marker = new google.maps.Marker({
+            //                 position: latLng,
+            //                 map: map,
+            //                 title: data.name,
+            //                 label: String(freeBikes),
+            //             });
+            //             bindInfoWindow(marker, map);
+            //         });
+            //     });
+            // }
+
+            function bike() {
+                var mapProp = {
+                    zoom: 13,
+                    center: {lat: 37.745210, lng: -122.422183}
+                };
+                map = new google.maps.Map(document.getElementById("map"), mapProp);
+				var bikeLayer = new google.maps.BicyclingLayer();
+        		bikeLayer.setMap(map);
+        		//var pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+        		var pinImage = new google.maps.MarkerImage("/images/pinimage.png");
+                $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
+                    $.each(res.network.stations, function (key,data) {
+                        var latLng = new google.maps.LatLng(data.latitude, data.longitude);
+                        var freeBikes = data.free_bikes;
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            title: data.name,
+                            label: String(freeBikes),
+                            icon: pinImage,
+                        });
+                        bindInfoWindow(marker, map);
+                    });
+                });
+            }
+
+
+            function dock() {
+                var mapProp = {
+                    zoom: 13,
+                    center: {lat: 37.745210, lng: -122.422183}
+                };
+                map = new google.maps.Map(document.getElementById("map"), mapProp);
+				var bikeLayer = new google.maps.BicyclingLayer();
+        		bikeLayer.setMap(map);
+        		var pinImage2 = new google.maps.MarkerImage("/images/pinimage2.png");
+
+                $.getJSON('https://api.citybik.es/v2/networks/bay-area-bike-share', function(res){
+                    $.each(res.network.stations, function (key,data) {
+                        var latLng = new google.maps.LatLng(data.latitude, data.longitude);
+                        var emptySlots = data.empty_slots;
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            title: data.name,
+                            label: String(emptySlots),
+                            icon: pinImage2,
+                        });
+                        bindInfoWindow(marker, map);
+                    });
+                });
+            }
+            var heatmap;
+            function initMap() {
+                var mapProp = {
+                    zoom: 13,
+                    center: {lat: 37.749210, lng: -122.422183}
+                };
+                map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+                heatmap = new google.maps.visualization.HeatmapLayer({
+			      data: getPoints(),
+			      map: map,
+			    });
+
+			    heatmap.set('radius', 20);
+			    heatmap.set('opacity', 0.8);
+
+			}
+
+
+
+			  function getPoints() {
+			    return [
+			        new google.maps.LatLng(37.795001, -122.39997),
+			        new google.maps.LatLng(37.79728, -122.398436),
+			        new google.maps.LatLng(37.783871, -122.408433),
+			        new google.maps.LatLng(37.795001, -122.39997),
+			        new google.maps.LatLng(37.794231, -122.402923),
+			        new google.maps.LatLng(37.795425, -122.404767),
+			        new google.maps.LatLng(37.788975, -122.403452),
+			        new google.maps.LatLng(37.799953, -122.398525),
+			        new google.maps.LatLng(37.791464, -122.391034),
+			        new google.maps.LatLng(37.787152, -122.388013),
+			        new google.maps.LatLng(37.789756, -122.394643),
+			        new google.maps.LatLng(37.792251, -122.397086),
+			        new google.maps.LatLng(37.781752, -122.405127),
+			        new google.maps.LatLng(37.781332, -122.418603),
+			        new google.maps.LatLng(37.80477, -122.403234),
+			        new google.maps.LatLng(37.780526, -122.390288),
+			        new google.maps.LatLng(37.786978, -122.398108),
+			        new google.maps.LatLng(37.782259, -122.392738),
+			        new google.maps.LatLng(37.771058, -122.402717),
+			        new google.maps.LatLng(37.774814, -122.418954),
+			        new google.maps.LatLng(37.776619, -122.417385),
+			        new google.maps.LatLng(37.784878, -122.401014),
+			        new google.maps.LatLng(37.7766, -122.39547),
+			        new google.maps.LatLng(37.776599, -122.39528),
+			        new google.maps.LatLng(37.788446, -122.408499),
+			        new google.maps.LatLng(37.781039, -122.411748),
+			        new google.maps.LatLng(37.7913, -122.399051),
+			        new google.maps.LatLng(37.786305, -122.404966),
+			        new google.maps.LatLng(37.789625, -122.400811),
+			        new google.maps.LatLng(37.798541, -122.400862),
+			        new google.maps.LatLng(37.785366, -122.39644),
+			        new google.maps.LatLng(37.794355, -122.39461),
+			        new google.maps.LatLng(37.785908, -122.408891),
+			        new google.maps.LatLng(37.789656, -122.390373),
+			        new google.maps.LatLng(37.795275, -122.394148),
+			        new google.maps.LatLng(37.7979, -122.405942),
+			        new google.maps.LatLng(37.778744, -122.418104),
+			        new google.maps.LatLng(37.780148, -122.403158),
+			        new google.maps.LatLng(37.78718, -122.394106)
+
+			    ];
+			  }
+
+            function bindInfoWindow(marker, map, infowindow, strDescription) {
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.setContent(strDescription);
+                    infowindow.open(map, marker);
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+        </script>
+         <script async defer
+        	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgUYO3939n1VQjGD9Sx2ITMoeloE2LywM&libraries=visualization&callback=initMap"></script>
+	</body>
+</html>
