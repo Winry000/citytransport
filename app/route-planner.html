@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script src='scripts/ch.js'></script>
     <style>
       #left-panel {
         font-family: 'Roboto','sans-serif';
@@ -57,16 +58,16 @@
           <div id="header">
 
             <!-- Logo -->
-              <h1><a href="index.html">Data Visualization for ITS in SF</a></h1>
+              <h1><a href="index.html" data-res="title">Data Visualization for ITS in SF</a></h1>
 
             <!-- Nav -->
               <nav id="nav">
                 <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="realtime-public-transportation.html">City Bus</a></li>
-                  <li ><a href="realtime-bicycle.html">City Bikes</a></li>
-                  <li class="current"><a href="route-planner.html">Route Planner</a></li>
-                  <li><a href="maps.html">Maps</a></li>
+                  <li><a href="index.html" data-res="home">Home</a></li>
+                  <li><a href="realtime-public-transportation.html" data-res="bus">City Bus</a></li>
+                  <li ><a href="realtime-bicycle.html" data-res="bike">City Bikes</a></li>
+                  <li class="current"><a href="route-planner.html" data-res="route">Route Planner</a></li>
+                  <li><a href="maps.html" data-res="maps">Maps</a></li>
                 </ul>
               </nav>
 
@@ -85,15 +86,15 @@
                     B <input type="text" id="endInput" size="40">
                 </div>
                 <select id="mode" style="padding: 5px;" >
-                  <option value="DRIVING">Driving</option>
-                  <option value="WALKING">Walking</option>
-                  <option value="BICYCLING">Bicycling</option>
-                  <option value="TRANSIT">Transit</option>
+                  <option value="DRIVING" data-res="driving">Driving</option>
+                  <option value="WALKING" data-res="walking">Walking</option>
+                  <option value="BICYCLING" data-res="bicycling">Bicycling</option>
+                  <option value="TRANSIT" data-res="transit">Transit</option>
                 </select>
                 <div style="padding: 5px;">
-                  <button type='button' onclick=submitBtn()><span>Find My Route</span></button>
+                  <button type='button' onclick=submitBtn()><span data-res="find">Find My Route</span></button>
                 </div>
-                <p id="total_distance" style="visibility: hidden;">Total Distance: <span id="total"></span></p>
+                <p id="total_distance" style="visibility: hidden;" data-res="distance">Total Distance: <span id="total"></span></p>
               </div>
                 <div id="map" class="col-md-8 col-xs-12"></div>
         </div>
@@ -172,6 +173,7 @@
         displayRoute(document.getElementById('startInput').value, document.getElementById('endInput').value, directionsService, document.getElementById('mode').value, directionsDisplay);
       }
     </script>
+    <script src="scripts/langlocal.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVF2lbai-OPJK9i-4htvReyZFpvbqTiJE&libraries=places&callback=initMap">
     </script>
